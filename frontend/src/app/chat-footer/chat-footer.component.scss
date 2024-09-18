@@ -1,0 +1,46 @@
+.chat-footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* position: sticky;
+  top: 100vh; */
+  /* width: 100%; */
+  padding: 10px;
+  background-color: #5208db;
+
+  .input-box {
+    width: 80%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    height: 60px;
+    border-radius: 10px;
+    background-color: #f0f0f0;
+
+    i {
+      font-size: 40px;
+      color: #000;
+
+      &.bxs-file-plus {
+        padding: 5px;
+      }
+    }
+
+    textarea {
+      flex: 1;
+      border: none;
+      outline: none;
+      font-size: 16px;
+      background-color: transparent;
+      width: 100%;
+      resize: none;
+    }
+
+    button {
+      background-color: transparent;
+      border: none;
+      outline: none;
+      padding: 5px;
+    }
+  }
+}

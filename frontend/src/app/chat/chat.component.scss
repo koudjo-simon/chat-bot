@@ -1,0 +1,138 @@
+.chat-container {
+  display: flex;
+  flex-direction: column;
+  /* background-color: #f0f0f0; */
+  /* min-height: calc(100vh - 100px); */
+  position: relative;
+  /* overflow-y: auto; */
+  flex: 1;
+  display: flex;
+  height: 100%;
+  margin-bottom: 120px;
+
+  /* &::-webkit-scrollbar {
+    display: none;
+  } */
+
+  .chat-body {
+    min-height: calc(100vh - 100px);
+    overflow-y: auto;
+    flex: 1;
+    padding-bottom: 60px;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    .chat-message {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      padding: 10px;
+      background-color: #fff;
+
+      .message {
+        margin-bottom: 10px;
+        word-wrap: break-word; // Ajouté pour permettre le retour à la ligne
+        white-space: pre-wrap; // Ajouté pour conserver les espaces et les retours à la ligne
+        overflow-x: auto;
+
+        &.right {
+          align-self: flex-end;
+          max-width: 70%;
+          width: fit-content;
+          padding: 10px;
+          height: auto;
+          border-radius: 10px;
+          background-color: #bebdbd;
+          word-wrap: break-word; // Ajouté pour permettre le retour à la ligne
+          white-space: pre-wrap; // Ajouté pour conserver les espaces et les retours à la ligne
+        }
+
+        &.left {
+          align-self: flex-start;
+          max-width: 70%;
+          width: fit-content;
+          padding: 10px;
+          height: auto;
+          border-radius: 10px;
+          background-color: #f0f0f0;
+          word-wrap: break-word; // Ajouté pour permettre le retour à la ligne
+          white-space: pre-wrap; // Ajouté pour conserver les espaces et les retours à la ligne
+        }
+
+        .chat-message-title {
+          /* background: #1c2a39; */
+          font-weight: 100;
+          font-size: 16px;
+        }
+      }
+    }
+
+    .new-page-informations {
+      height: 100%;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  .chat-footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    bottom: 0;
+
+    width: 100%;
+    background-color: #fff;
+
+    .input-box {
+      width: 80%;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      height: 60px;
+      border-radius: 10px;
+      background-color: #f0f0f0;
+
+      i {
+        font-size: 40px;
+        color: #000;
+
+        &.bxs-file-plus {
+          padding: 5px;
+        }
+      }
+
+      textarea {
+        flex: 1;
+        border: none;
+        outline: none;
+        font-size: 16px;
+        background-color: transparent;
+        width: 100%;
+        resize: none;
+        padding: 10px;
+      }
+
+      button {
+        background-color: transparent;
+        border: none;
+        outline: none;
+        padding: 5px;
+
+        &.enable {
+          cursor: pointer;
+          background-color: #1c2a39;
+          color: #f0f0f0;
+        }
+
+        &.disabled {
+          cursor: not-allowed;
+        }
+      }
+    }
+  }
+}

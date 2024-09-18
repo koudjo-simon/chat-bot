@@ -1,0 +1,79 @@
+nav {
+  height: 56px;
+  padding: 0 24px 0 0;
+  display: flex;
+  align-items: center;
+  grid-gap: 24px;
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  background: white;
+  width: 100%;
+}
+
+nav i {
+  color: #fff;
+  margin-right: auto;
+}
+
+/* nav::before {
+  content: "";
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  bottom: -40px;
+  left: 0;
+  border-radius: 50%;
+  box-shadow: -20px -20px 0 var(--content-background-color);
+}
+ */
+
+ul.nav-right {
+  display: flex;
+  align-items: center;
+  grid-gap: 24px;
+}
+
+nav .notif {
+  font-size: 20px;
+  position: relative;
+}
+
+nav .notif .count {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  width: 20px;
+  height: 20px;
+  background: var(--danger);
+  border-radius: 50%;
+  color: var(--light);
+  border: 2px solid var(--light);
+  font-weight: 700;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+nav .profile {
+  display: flex;
+  align-items: center;
+  grid-gap: 5px;
+  color: var(--sidebar-text-color);
+  /* white-space: nowrap;
+  overflow-x: hidden; */
+}
+
+nav .profile img {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+  border-radius: 50%;
+}
+
+nav .profile span {
+  font-size: 16px;
+  font-weight: 600;
+}

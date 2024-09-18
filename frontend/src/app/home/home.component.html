@@ -1,0 +1,35 @@
+<div>
+  <div class="sidebar" [ngClass]="sidebarState() ? 'close' : ''">
+    <a class="logo">
+      <img src="logos/logo.png" alt="" />
+      <div class="logo-name">CS Bot</div>
+    </a>
+    <ul class="sidebar-menu logout">
+      <li>
+        <a (click)="openNewChat()"><i class="bx bx-plus"></i>Nouveau</a>
+      </li>
+    </ul>
+    <ul class="sidebar-menu menu">
+      @for (chat of chats; track $index) {
+      <li
+        (click)="goToChatPage(chat)"
+        [ngClass]="{
+          active: activeChat?.id === chat?.id || activeChatId == chat.id
+        }"
+      >
+        <a> {{ chat.name }} </a>
+      </li>
+      }
+    </ul>
+    <ul class="sidebar-menu logout">
+      <li>
+        <a (click)="logout()"><i class="bx bx-log-out"></i>Déconnexion</a>
+      </li>
+    </ul>
+  </div>
+  <div class="content">
+    <app-navbar></app-navbar>
+    <app-chat></app-chat>
+    <!-- <app-chat-footer></app-chat-footer> -->
+  </div>
+</div>

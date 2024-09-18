@@ -1,0 +1,13 @@
+<div class="chat-footer">
+  <form [formGroup]="formGroup" (ngSubmit)="handleOnSubmit()" class="input-box">
+    <i class="bx bxs-file-plus"></i>
+    <textarea
+      type="text"
+      placeholder="Message"
+      formControlName="message"
+    ></textarea>
+    <button type="submit" [disabled]="formGroup.invalid">
+      <i class="bx bx-send"></i>
+    </button>
+  </form>
+</div>

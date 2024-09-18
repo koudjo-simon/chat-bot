@@ -1,0 +1,77 @@
+<div class="chat-container">
+  <div class="chat-body">
+    <div class="chat-message" *ngIf="messages.length !== 0">
+      <div
+        class="message"
+        [ngClass]="{
+          right: message.sender === 'user',
+          left: message.sender === 'bot'
+        }"
+        *ngFor="let message of messages"
+      >
+        <div class="chat-message-title">
+          @if (message.sender === 'user') {
+          <span>{{ userName }}</span>
+          }@else {
+          <span>CS Bot</span>
+          }
+        </div>
+
+        <ng-container *ngFor="let part of message.content">
+          <!-- Vérifier si le message contient du code -->
+          <ng-container *ngIf="isJson(part.part); else textMessage">
+            <mat-card
+              class="code-card"
+              style="background-color: #1d1515; margin-bottom: 30px"
+            >
+              <mat-card-header style="background-color: #613f3f">
+                <mat-card-title
+                  style="color: #eee6e6; height: 30px; padding: auto 3px"
+                  >{{ getLanguageFromContent(part.part) }}</mat-card-title
+                >
+              </mat-card-header>
+              <mat-card-content>
+                <pre><code style="color: #eee6e6;">{{ getCodeFromContent(part.part) }}</code></pre>
+              </mat-card-content>
+            </mat-card>
+          </ng-container>
+
+          <!-- Texte simple pour les messages utilisateur ou texte bot -->
+          <ng-template #textMessage>
+            <div class="message-body">
+              {{ part.part }}
+            </div>
+          </ng-template>
+        </ng-container>
+      </div>
+    </div>
+    <div class="new-page-informations" *ngIf="messages.length === 0">
+      <p>Entrer une requête et valider</p>
+    </div>
+    <div class="chat-footer">
+      <form
+        [formGroup]="formGroup"
+        (ngSubmit)="handleOnSubmit()"
+        class="input-box"
+      >
+        <textarea
+          type="text"
+          placeholder="Message"
+          formControlName="message"
+        ></textarea>
+        <button
+          type="submit"
+          [ngStyle]="{ cursor: formGroup.invalid ? 'not-allowed' : 'pointer' }"
+          [disabled]="formGroup.invalid"
+        >
+          <i
+            class="bx bx-send"
+            [ngStyle]="{
+              cursor: formGroup.invalid ? 'not-allowed' : 'pointer'
+            }"
+          ></i>
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
